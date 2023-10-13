@@ -20,14 +20,18 @@ let lilMermaidTotal = littleMermaid * rentalRate;
 let bBearTotal = brotherBear * rentalRate;
 let herculesTotal = hercules * rentalRate;
 
+lilMermaidTotal = Number(lilMermaidTotal);
+bBearTotal = Number(bBearTotal);
+herculesTotal = Number(herculesTotal);
+
 let totalCost = lilMermaidTotal + bBearTotal + herculesTotal;
 
-alert(`The total cost of all three rentals is $${totalCost}`);
+alert(`The total cost of all three rentals is $${totalCost.toFixed(2)}`);
 
 // Exercise 3 - Contract Pay
 
 let googlePay = prompt('How much did Google pay per hour?', '400');
-let amazonPay = prompt('How much did Amazon pay per hour?', '300');
+let amazonPay = prompt('How much did Amazon pay per hour?', '380');
 let facebookPay = prompt('How much did Facebook pay per hour?', '350');
 
 let googleHrs = prompt('How many hours did you work for Google?', '6');
@@ -38,9 +42,13 @@ let totalGooglePay = googlePay * googleHrs;
 let totalAmazonPay = amazonPay * amazonHrs;
 let totalFacebookPay = facebookPay * facebookHrs;
 
+totalGooglePay = Number(totalGooglePay);
+totalAmazonPay = Number(totalAmazonPay);
+totalFacebookPay = Number(totalFacebookPay);
+
 let totalContractPay = totalGooglePay + totalAmazonPay + totalFacebookPay;
 
-alert(`The total payment received for all contracts was $${totalContractPay}`);
+alert(`The total payment received for all contracts was $${totalContractPay.toFixed(2)}`);
 
 
 

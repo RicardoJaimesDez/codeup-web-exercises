@@ -8,11 +8,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-// let name = prompt('Enter your name: ');
 function sayHello(name) {
     return "Hello " + name + "!";
 }
-console.log(sayHello('Ricky'));
+//console.log(sayHello('Ricky'));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -91,7 +90,7 @@ console.log(calculateTip(0.15, 33.42));
  * then display the dollar amount they should tip
  */
 let totalBill = prompt('Enter your total bill:');
-let tipPercent = prompt('Enter your desired tip:');
+let tipPercent = prompt('Enter your desired tip amount:');
 let total = parseFloat(totalBill) + parseFloat(calculateTip(totalBill, (tipPercent / 100)));
 alert(`Your total bill for the meal was $${totalBill} \nYour desired tip amounts was ${tipPercent}% \nbringing your total to $${total.toFixed(2)}`);
 
@@ -114,5 +113,5 @@ function applyDiscount(originalPrice, discountPercent) {
     return (originalPrice - (originalPrice * discountPercent));
 }
 
-alert(' Your total discount is ' + parseFloat(applyDiscount(100, .2)));
-alert(' Your total discount is ' + parseFloat(applyDiscount(45.99, 0.12)));
+alert(' Your total after the discount is ' + parseFloat(applyDiscount(100, .2)));
+alert(' Your total after the discount is ' + parseFloat(applyDiscount(45.99, 0.12)));

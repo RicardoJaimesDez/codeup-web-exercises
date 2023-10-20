@@ -20,11 +20,11 @@
 
     // Let's create a loop to print all of our cheeses to the console!
     for (let i = 0; i < cheeses.length; i++) {
-        console.log(cheeses[i]);
+        console.log(cheeses[i]); // this prints the array forward!
     }
 
     for (let i = cheeses.length - 1; i >= 0; i--) {
-        console.log(cheeses[i]);
+        console.log(cheeses[i]); // this prints the array backwards!
     }
 
     //For Each version

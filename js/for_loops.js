@@ -4,12 +4,30 @@
 // #2
 /** Create a function named showMultiplicationTable that accepts a number and console.logs the multiplication
  * table for that number (just multiply by the numbers 1 through 10)*/
-function showMultiplicationTable(number) {
-    for (let i = 1; i <= 10; i++) {
-        console.log(`${number} x ${i} = ${number * i}`);
+// Fat Arrow Immediately Invoked Function Expression (IIFE) Example:
+(() => {
+    function showMultiplicationTable(number) {
+        for (let i = 1; i <= 10; i++) {
+            console.log(`${number} x ${i} = ${number * i}`);
+        }
     }
-}
-showMultiplicationTable(7);
+
+    showMultiplicationTable(7);
+})();
+
+/** Alternate method of solving this problem.
+ * Study this method!!!*/
+// // (() => {
+// //     function showMultiplicationTable(number) {
+// //         let message = "";
+// //         for (let i = 1; i <= 10; i++) {
+// //             message += (`${number} x ${i} = ${number * i}\n`);
+// //         }
+// //         return message;
+// //     }
+// //
+// //     showMultiplicationTable(7);
+// })();
 
 // #3
 /** Use a for loop and the code from the previous lessons to generate 10 random numbers between 20 and 200
@@ -35,10 +53,16 @@ for (let i = 0; i < 10; i++) {
  *  88888888
  *  999999999*/
 
+/** Alternate method of solving this problem.
+ * Study this method!!!*/
+// for (let i = 1; i <= 9; i++) {
+//     console.log(i.toString().repeat(i));
+// }
+
 for (let i = 1; i <= 9; i++) {
     let pyramid = "";
     for (let j = 1; j <= i; j++) {
-        pyramid = i + pyramid;
+        pyramid = pyramid + i;
     }
     console.log(pyramid);
 }
@@ -66,6 +90,12 @@ for (let i = 1; i <= 9; i++) {
  15
  10
  5*/
+
+/** Alternate example... Study this!!
+ *  for (let i = 100; i > 0; i -= 5) {
+ *      console.log(i);
+ *  }
+ */
 
 for (let i = 100; i >= 5; i = i - 5) {
     console.log(i);

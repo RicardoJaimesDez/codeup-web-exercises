@@ -4,11 +4,11 @@
 // #2
 /** Create a while loop that uses console.log() to create the output shown below. */
 
-// let i = 2;
-// while (i <= 65536) {
-//     console.log(i);
-//     i = i * 2;
-// }
+let i = 2;
+while (i <= 65536) {
+    console.log(i);
+    i = i * 2;
+}
 
 // ---------- Do While Loops ----------
 // #1
@@ -26,10 +26,10 @@ let allCones = Math.floor(Math.random() * 50) + 50;
 do {
     let conesBought = Math.floor(Math.random() * 5) + 1;
     if (conesBought <= allCones) {
-        console.log(`${conesBought} cones sold...`)
         allCones = allCones - conesBought;
+        console.log(`${conesBought} cones sold, I have ${allCones} left.`);
     } else {
-        console.log(`Cannot sell you ${conesBought} cones, I only have 3...`)
+        console.log(`Sorry, I cannot sell you ${conesBought} cones, I only have ${allCones} left`);
     }
 } while (allCones > 0);
 console.log("Yay! I sold all the cones!");

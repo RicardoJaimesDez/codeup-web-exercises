@@ -30,12 +30,16 @@
     for (let i = 0; i < names.length; i++) {
         console.log(names[i]);
     }
+    // alternate method
+    // for (let name of names) {
+    //     console.log(name);
+    // }
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
     names.forEach(function (name) {
-        console.log(name)
+        console.log(name);
     });
     /**
      * TODO:
@@ -50,9 +54,9 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    function first(fInput) {
-        return fInput[0];
-    }
+    // function first(fInput) {
+    //     return fInput[0];
+    // }
     // console.log(first([1, 2, 3, 4, 5]));
 
     // function  second(secInput) {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms Lecture</title>
+</head>
+<body>
+<form action="https://request-inspector.glitch.me/" method="post">
+    <label for="val">Some Label:</label>
+    <input type="text" name="val" id="val" value="Tacos">
+    <label for="passwordText">Password Input:</label>
+    <input type="password" name="password" id="passwordText" placeholder="Enter Password">
+    <label for="bioSample">Bio</label>
+    <textarea name="bio" id="bioSample" cols="30" rows="10">Tell me about yourself</textarea>
+
+    <h3>Which is the formula to ge the area of a square?</h3>
+    <input type="radio" name="areaQuestion" value="wrong" id="areaQuestion1" checked><label for="areaQuestion1">Pi *
+    r^2</label>
+    <input type="radio" name="areaQuestion" value="correct" id="areaQuestion2"><label for="areaQuestion2">side^2</label>
+
+    <input type="checkbox" name="continuedComms" id="emailRegister" value="email" checked> <label for="emailRegister">Hey,
+    do you want an email every 30 minutes about our product and services</label>
+
+
+    <label for="cerealSelect">What's your favorite cereal?</label>
+    <select name="favoriteCereal" id="cerealSelect">
+        <option value="cheerios">Honey Nut Cheerios</option>
+        <option value="ohs">Honey Oh's</option>
+        <option value="bunches">Honey Bunches of Oats</option>
+    </select>
+
+    <input type="hidden" name="secret" value="45">
+    <input type="submit">
+</form>
+</body>
+</html>

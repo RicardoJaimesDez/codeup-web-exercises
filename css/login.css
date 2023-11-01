@@ -11,9 +11,8 @@ body, html {
 }
 
 form {
-    margin-top: 1em;
+    margin: 1em;
     padding: 1em;
-    border: 1px;
     /* This form should be separated from other elements by 1em */
     /* There must be 1em between the content and the border of this element */
 }
@@ -23,6 +22,7 @@ fieldset {
     -moz-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     padding: 1em;
+    border-style: none;
     background: #fff;
 
     /* There must be 1em between the content and the border of this element */
@@ -32,7 +32,7 @@ fieldset {
 
 .width-80 {
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
     /* The element with this class should be 80% of the width and it must be centered */
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
 }
@@ -66,8 +66,9 @@ fieldset {
 }
 
 .form-control {
-    margin: 4px 0 4px 0;
-    padding: 0.5em 0;
+    margin: .5em 0;
+    padding: 4px 0;
+
 
     /* There must be 4px on top of the text and below the text of an input with this class */
     /* It should have a separation of .5em from elements on top of it and below it */
@@ -75,7 +76,8 @@ fieldset {
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: 100%;
+    width: calc(100% - 4px);
+    /*box-sizing: border-box;*/
 }
 
 

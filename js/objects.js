@@ -129,6 +129,23 @@
      *      ---
      *      ...
      */
+    function showBookInfo(book) {
+        return `Title: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}`;
+    }
+
+    for(let i = 0; i < books.length; i++) {
+        console.log(`Book # ${i + 1}\n${showBookInfo(books[i])}\n---`);
+    }
+
+    books.forEach((book, index) => {
+        console.log(`Book # ${index + 1}\n${showBookInfo(book)}\n---`);
+
+    });
+
+    let someBookCount = 1;
+    for(let book of books) {
+        console.log(`Book # ${someBookCount++}\n${showBookInfo(book)}\n---`);
+    }
 
     /**
      * Bonus:

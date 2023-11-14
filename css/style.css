@@ -1,4 +1,46 @@
 h1 {
     color: purple;
     text-decoration: underline;
+    font-family: Anton, sans-serif;
+}
+
+body {
+    /*background-image: url("/images/codeup_duck_logo.png");*/
+    background: limegreen;
+}
+
+h2 {
+    color: red;
+}
+
+.custom-style {
+    list-style-type: square;
+}
+
+tr {
+    background: orange;
+    font-size: 1.5em;
+}
+
+td {
+    padding: 10px;
+    border: 2px solid black;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #4c2a85;
+}
+
+a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #cc0000;
 }

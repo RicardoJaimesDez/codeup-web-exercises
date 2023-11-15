@@ -37,3 +37,12 @@
 #toggle-btn:hover {
     background-color: #0056b3;
 }
+
+.new-description-style {
+    color: yellow;
+    font-family: 'Anton', sans-serif;
+}
+
+.alt-bg {
+    background: #b4d455;
+}

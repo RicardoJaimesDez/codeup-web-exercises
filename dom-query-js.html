@@ -24,10 +24,15 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<!--THESE ARE BUTTONS FROM DOM EVENTS EXERCISE -->
+<div>
 <button id="js-cool-btn">JavaScript is Cool!</button>
 <button id="blue-sub-header-btn">Blue Sub Header</button>
 <button id="grey-li-btn">Even Grey li tag</button>
 <button id="mission-accomplish-btn">Mission Accomplished!</button>
+</div>
+<!--END OF BUTTONS FROM DOM EVENTS EXERCISE -->
+
 <script>
     "use strict";
 
@@ -95,6 +100,31 @@
             subParagraph.innerHTML = '<p>Mission Accomplished!</p>';
         }
     });
+
+
+    // TODO Mouse Events Exercise
+
+    const H1 = document.querySelector('h1');
+    const FONT = document.querySelector('p');
+
+    H1.addEventListener('click', function () {
+        H1.style.backgroundColor = 'olive';
+    });
+
+    FONT.addEventListener('dblclick', function () {
+        FONT.style.fontSize = '18px';
+    });
+    
+    
+    let changeLi = document.querySelectorAll('li');
+    for (let i = 0; i < changeLi.length; i++) {
+            changeLi[i].addEventListener('mouseenter', function () {
+                changeLi[i].style.color = 'red';
+        });
+           changeLi[i].addEventListener('mouseleave', function () {
+               changeLi[i].style.color = 'green';
+           });
+    }
 </script>
 </body>
 </html>

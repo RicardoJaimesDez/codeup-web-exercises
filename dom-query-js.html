@@ -24,71 +24,77 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-<button id="js-cool">JavaScript is Cool!</button>
-<button id="blue-sub-header">Blue Sub Header</button>
-<button id="grey-li">Even Grey li tag</button>
-<button id="blue-dbid">Blue Data dbit = 1</button>
+<button id="js-cool-btn">JavaScript is Cool!</button>
+<button id="blue-sub-header-btn">Blue Sub Header</button>
+<button id="grey-li-btn">Even Grey li tag</button>
+<button id="mission-accomplish-btn">Mission Accomplished!</button>
 <script>
-        "use strict";
+    "use strict";
 
-        function changeToBlue () {
-            subHeader.style.color = 'blue';
-            dbidOne.style.color = 'blue';
-        }
+    function changeToBlue() {
+        subHeader.style.color = 'blue';
+        dbidOne.style.color = 'blue';
+    }
 
-        // TODO: Uncomment next line and get the main header element by id
-        // const mainHeader = document.getElementById('main-header'); this is also correct - This was from the DOM EXERCISE
-        const mainHeader = document.querySelector('#main-header'); // This was from the DOM EXERCISE
+    // TODO: Uncomment next line and get the main header element by id
+    // const mainHeader = document.getElementById('main-header'); this is also correct - This was from the DOM EXERCISE
+    const mainHeader = document.querySelector('#main-header'); // This was from the DOM EXERCISE
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        // mainHeader.innerHTML = "JavaScript is Cool"; This was from the DOM EXERCISE
-        document.getElementById('js-cool').addEventListener('click', function () {
-            mainHeader.innerHTML = "JavaScript is Cool!";
-        });
-        // TODO: Uncomment the next line and get the sub header element by id
-        const subHeader = document.getElementById('sub-header');
-        document.getElementById('blue-sub-header').addEventListener('click', changeToBlue);
+    // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+    // mainHeader.innerHTML = "JavaScript is Cool"; This was from the DOM EXERCISE
+    document.getElementById('js-cool-btn').addEventListener('click', function () {
+        mainHeader.innerHTML = "JavaScript is Cool!";
+    });
+    // TODO: Uncomment the next line and get the sub header element by id
+    const subHeader = document.getElementById('sub-header');
+    document.getElementById('blue-sub-header-btn').addEventListener('click', changeToBlue);
 
-        // TODO: Set the text color of subHeader to blue
-        // subHeader.style.color = 'blue'; This was from the DOM EXERCISE
+    // TODO: Set the text color of subHeader to blue
+    // subHeader.style.color = 'blue'; This was from the DOM EXERCISE
 
-        // TODO: Uncomment the next line and get all list items
-        const listItems = document.getElementsByTagName('li');
-        // const listItems = document.querySelectorAll('li'); this is also correct
-        document.getElementById('grey-li').addEventListener('click', function () {
-            for (let i = 0; i < listItems.length; i++) { //This was from the DOM EXERCISE
-                if (i % 2 === 0) {
-                    listItems[i].style.color = 'grey';
-                }
+    // TODO: Uncomment the next line and get all list items
+    const listItems = document.getElementsByTagName('li');
+    // const listItems = document.querySelectorAll('li'); this is also correct
+    document.getElementById('grey-li-btn').addEventListener('click', function () {
+        for (let i = 0; i < listItems.length; i++) { //This was from the DOM EXERCISE
+            if (i % 2 === 0) {
+                listItems[i].style.color = 'grey';
             }
-        });
-        // TODO: Set text color on every other list item to grey
-        // for (let i = 0; i < listItems.length; i++) { This was from the DOM EXERCISE
-        //     if (i % 2 === 0) {
-        //         listItems[i].style.color = 'grey';
-        //     }
 
-            // if (listItems[i].dataset.dbid === '1') { ALSO CORRECT WAY TO SOLVE THE dbid TODO!!
-            //     listItems[i].style.color = 'blue';
-            // }
-        //}
-        // TODO: Set text color of li with dbid = 1 to blue
+            if (listItems[i].dataset.dbid === '1') { //ALSO CORRECT WAY TO SOLVE THE dbid TODO!!
+                listItems[i].style.color = 'blue';
+            }
+        }
+    });
+    // TODO: Set text color on every other list item to grey
+    // for (let i = 0; i < listItems.length; i++) { This was from the DOM EXERCISE
+    //     if (i % 2 === 0) {
+    //         listItems[i].style.color = 'grey';
+    //     }
 
-       let dbidOne = document.querySelector('li[data-dbid="1"]');
-        // dbidOne.style.color = 'blue';
+    // if (listItems[i].dataset.dbid === '1') { ALSO CORRECT WAY TO SOLVE THE dbid TODO!!
+    //     listItems[i].style.color = 'blue';
+    // }
+    //}
+    // TODO: Set text color of li with dbid = 1 to blue
 
-        // listItems[0].style.color = 'blue'; ALTERNATE WAY OF DOING IT - ALSO CORRECT
-        document.getElementById('blue-dbid').addEventListener('click', changeToBlue);
+    let dbidOne = document.querySelector('li[data-dbid="1"]');
+    // dbidOne.style.color = 'blue';
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        const subParagraphs = document.getElementsByClassName('sub-paragraph');
-        // const subParagraphs = document.querySelectorAll('.sub-paragraph'); ALSO CORRECT WAY OF DOING IT
+    // listItems[0].style.color = 'blue'; ALTERNATE WAY OF DOING IT - ALSO CORRECT
+    // document.getElementById('blue-dbid').addEventListener('click', changeToBlue);
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        // subParagraphs[0].innerText = "Mission Accomplished!"; THIS ALSO WORKS!
+    // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+    const subParagraphs = document.getElementsByClassName('sub-paragraph');
+    // const subParagraphs = document.querySelectorAll('.sub-paragraph'); ALSO CORRECT WAY OF DOING IT
+
+    // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    // subParagraphs[0].innerText = "Mission Accomplished!"; THIS ALSO WORKS!
+    document.getElementById('mission-accomplish-btn').addEventListener('click', function () {
         for (let subParagraph of subParagraphs) {
             subParagraph.innerHTML = '<p>Mission Accomplished!</p>';
         }
+    });
 </script>
 </body>
 </html>

@@ -3,27 +3,38 @@
 <head>
     <meta charset="utf-8">
     <title>Konami Code</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <h1>Konami Code</h1>
+<h1>Konami Code</h1>
 
-    <script>
-        "use strict";
-        const konmaniCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
-       let konmaniCodeIndex = 0;
-        // document.addEventListener("keyup", event => console.log(event.key) );
-        document.addEventListener('keyup', function (event) {
-            if (event.key === konmaniCode[konmaniCodeIndex]) {
-                konmaniCodeIndex++;
+<script>
+    "use strict";
 
-                if (konmaniCodeIndex === konmaniCode.length) {
-                    return "Konami Code Entered!";
+    const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
+    let konamiCodeIndex = 0;
 
-                }
-            }   else {
-                konmaniCodeIndex = 0;
+
+    document.addEventListener("keydown", event => {
+        if (event.key === konamiCode[konamiCodeIndex]) { // if the key pressed starts with "ArrowUp" it keeps going
+            konamiCodeIndex++;
+
+            if (konamiCodeIndex === konamiCode.length) { //
+                // console.log("Konami Code entered!");
+                alert("Congrats!! You have added 30 lives!!!");
+
+                document.body.style.backgroundColor = 'olive';
+                // resets the code index.
+                konamiCodeIndex = 0;
             }
-        });
-    </script>
+        } else {
+            // Reset the index if a wrong key is pressed.
+            konamiCodeIndex = 0;
+            alert("You've entered the WRONG CODE!!!");
+        }
+    });
+</script>
 </body>
 </html>

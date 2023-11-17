@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <title>Parks</title>
 
+    <style>
+        #bonus-img {
+            display: flex;
+            margin: 5em;
+            justify-content: space-evenly;
+            align-content: center;
+        }
+
+        .img-btn1, .img-btn2, .img-btn3 {
+            margin: 2em auto;
+
+        }
+        img {
+            border: 5px solid brown;
+            max-height: 184px;
+
+        }
+    </style>
+
 </head>
 <body>
 
@@ -41,5 +60,95 @@
     <dd>Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
 </dl>
 
+<div id="california-national-parks">
+    <h3 id="yosemite-national-park">Yosemite National Park</h3>
+    <ul>
+        <li>Yosemite covers an area of 747, 956 acres.</li>
+        <li>Highest point in Yosemite is 13,114 feet.</li>
+        <li>Became a national park on October 1, 1890.</li>
+        <li>Yosemite has 800 miles of developed trails.</li>
+    </ul>
+
+    <h3 id="joshua-tree-national-park">Joshua Tree National Park</h3>
+    <ul>
+        <li>Joshua Tree National Park covers 795, 156 acres.</li>
+        <li>Highest elevation is 5,814ft at the summit of Quail Mountain.</li>
+        <li>Average annual precipitation is about 8 inches of rain per year.</li>
+        <li>Designated a national monument in 1936 by FDR and accorded a national park status in 1994.</li>
+    </ul>
+
+    <h3 id="redwood-national-park">Redwood National Park</h3>
+    <ul>
+        <li>Covers an area of 172 miles.</li>
+        <li>Includes land held in three state parks: Jedidiah Smith Redwood, Del Norte Coast Redwoods, and prairie Creek Redwoods.</li>
+        <li>Elevation: just over 3,00 ft MSL.</li>
+        <li>Became a national park on October, 2, 1968.</li>
+    </ul>
+</div>
+
+    <button id="yellow-bg-btn">Yellow Background</button>
+
+    <section id="bonus-img">
+        <div id="pic-1"><img src="images/mona-lisa.jpeg" alt="Mona Lisa"><br><button class="img-btn1" type="button">Click Here</button></div>
+        <div id="pic-2"><img src="images/woods.jpeg" alt="woods"><br><button class="img-btn2" type="button">Click Here</button></div>
+        <div id="pic-3"><img src="images/iceberg.jpeg" alt="iceberg"><br><button class="img-btn3" type="button">Click Here</button></div>
+    </section>
+
+    <script>
+
+        // #3
+        const yellowBgBtn = document.getElementById('yellow-bg-btn');
+        const stateParkUl = document.querySelectorAll('ul');
+        function yellowBackground () {
+            for (let i = 0; i < stateParkUl.length; i++) {
+                let ul = stateParkUl[i];
+                ul.lastElementChild.style.backgroundColor = "yellow";
+            }
+        }
+        yellowBgBtn.addEventListener('click', yellowBackground);
+
+        // #4
+        const h3Elements = document.querySelectorAll('h3');
+
+        for (let i = 0; i < h3Elements.length; i++) {
+            h3Elements[i].addEventListener('click', function (event) {
+                const clickedH3 = event.target;
+
+                if (clickedH3.tagName === 'H3') {
+                    const ul = clickedH3.nextElementSibling;
+
+                    if (ul.tagName === 'UL') {
+                        const lis = ul.querySelectorAll('li');
+                        for (let i = 0; i < lis.length; i++) {
+                            lis[i].style.fontWeight = 'bold';
+                        }
+                    }
+                }
+            });
+        }
+
+        // #5
+        const liElements = document.querySelectorAll('li');
+
+        for (let i = 0; i < liElements.length; i++) {
+            liElements[i].addEventListener('click', function () {
+                const parentUl = this.parentElement;
+
+                if (parentUl.tagName === 'UL') {
+                    const firstLi = parentUl.querySelector('li');
+
+                    if (firstLi) {
+                        firstLi.style.color = 'blue';
+                    }
+                }
+            });
+        }
+
+        // BONUS SECTION
+
+
+
+
+    </script>
 </body>
 </html>

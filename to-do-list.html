@@ -5,6 +5,11 @@
     <title>To Do List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -16,7 +21,9 @@
             <form id="to-do-form">
                 <h3><label class="form-label" for="to-do">Enter to-do:</label></h3>
                 <input class="form-control" type="text" name="to-do" id="to-do">
-                <div class="d-grid"><button class="btn btn-secondary mt-3 add">Add To-Do</button></div>
+                <div class="d-grid">
+                    <button class="btn btn-secondary mt-3 add">Add To-Do</button>
+                </div>
             </form>
         </section>
         <section class="my-4 my-lg-0 col-lg-8">
@@ -33,23 +40,33 @@
 
 </script>
 
-    <script>
-        document.querySelector('#to-do-form').addEventListener('submit', function (e) {
-            // alert('BTN WORKS!!');
-            e.preventDefault(); // Prevent the default form submission behavior
+<script>
+    const inputText = document.querySelector('#to-do');
+    const addButton = document.querySelector('.add');
+    const listItems = document.querySelector('#to-do-list');
 
-            const ul = document.querySelector('#to-do-list');
-            const taskInput = document.querySelector('#to-do'); // Input from to-do
+    addButton.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (inputText.value.trim() !== '') {
             const createLi = document.createElement('li');
-            createLi.innerHTML = `<li class="to-do-item list-group-item d-flex justify-content-between align-items-center">
-                    <p class="m-0">Finish this exercise</p>
-                    <button class="btn btn-danger">Done</button>
-                </li>`
-
-
+            createLi.innerHTML = `<li class="to-do-item list-group-item d-flex justify-content-between align-items-center m-2">
+                <p class="m-0">${inputText.value}</p>
+                <button class="btn btn-danger done">Done</button>
+            </li>`;
+            listItems.appendChild(createLi);
+            inputText.value = '';
+        }
+        listItems.addEventListener('click', function (event) {
+            if (event.target.classList.contains('done')) {
+                const listItem = event.target.closest('.to-do-item').parentElement;
+                if (listItem) {
+                    listItems.removeChild(listItem);
+                }
+            }
+        });
     });
-
-    </script>
+</script>
 
 
 </body>

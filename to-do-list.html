@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
@@ -11,6 +12,7 @@
         }
     </style>
 </head>
+
 <body>
 <div class="container">
     <header class="text-center my-4">
@@ -35,8 +37,7 @@
     </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous">
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
 
 </script>
 
@@ -44,8 +45,9 @@
     const inputText = document.querySelector('#to-do');
     const addButton = document.querySelector('.add');
     const listItems = document.querySelector('#to-do-list');
+    const formList = document.querySelector('#to-do-form');
 
-    addButton.addEventListener('click', function (e) {
+    function createList(e) {
         e.preventDefault();
 
         if (inputText.value.trim() !== '') {
@@ -55,19 +57,23 @@
                 <button class="btn btn-danger done">Done</button>
             </li>`;
             listItems.appendChild(createLi);
-            inputText.value = '';
+
+
         }
-        listItems.addEventListener('click', function (event) {
-            if (event.target.classList.contains('done')) {
-                const listItem = event.target.closest('.to-do-item').parentElement;
-                if (listItem) {
-                    listItems.removeChild(listItem);
-                }
-            }
-        });
-    });
+        inputText.value = '';
+    }
+
+    function deleteList(event) {
+        event.preventDefault();
+
+        if (event.target.classList.contains('done')) {
+            const listItem = event.target.parentElement;
+            listItem.remove();
+        }
+    }
+
+    formList.addEventListener('submit', createList);
+    listItems.addEventListener('click', deleteList);
 </script>
-
-
 </body>
 </html>

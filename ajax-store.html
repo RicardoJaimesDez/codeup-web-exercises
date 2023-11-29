@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Online Store</title>
 </head>
@@ -22,8 +22,21 @@
 <script>
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+    fetch("data/inventory.json").then(response => response.json()).then(data => addDataToTable(data));
 
     // TODO: Take the data from inventory.json and append it to the products table
+
+    function addDataToTable(products) {
+        let tBodyData = document.querySelector('#insertProducts');
+
+        products.forEach(product => {
+            const trData = document.createElement('tr');
+            trData.innerHTML = `<td>${product.title}</td><td>${product["quantity"]}</td><td>${product["price"]}</td><td>${product["categories"].join(', ')}</td>`;
+            tBodyData.appendChild(trData);
+        })
+    }
+
+
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements

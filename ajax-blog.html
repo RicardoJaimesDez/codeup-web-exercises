@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog Exercise</title>
+</head>
+<body>
+    <h1>Ajax Blog Exercise</h1>
+    <div id="posts">
+
+    </div>
+
+    <script>
+        fetch("data/blog.json").then(response => response.json()).then(data => addData(data));
+
+        function addData(blogs) {
+            let divData = document.querySelector('#posts');
+
+            blogs.forEach(blog => {
+                let divContent = document.createElement('div');
+                let imgElement = document.createElement('img');
+                imgElement.src = blog["imageUrl"];
+                imgElement.style.maxWidth = '150px';
+
+                divContent.innerHTML = `
+                    <h2>${blog.title}</h2>
+                    ${imgElement.outerHTML}
+                    <p>${blog.content}</p>
+                    <p>Cateory: ${blog["categories"].join(', ')}</p>
+                    <p>Date: ${blog["date"]}</p>`
+
+                divData.appendChild(divContent);
+            });
+        }
+    </script>
+</body>
+</html>

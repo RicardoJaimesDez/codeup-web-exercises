@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Lecture</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+  <div id='map' style='width: 80vw; height: 50vh; margin: auto;'></div>
+  <script src="js/keys.js"></script>
+  <script src="js/mapbox_geocoder_utils.js"></script>
+  <script>
+    mapboxgl.accessToken = MAPBOX_KEY;
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      center: [-118.3282279, 33.3428193], // starting position [lng, lat]
+      zoom: 9, // starting zoom
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    geocode("150 METROPOLE AVENUE AVALON, CA 90704", MAPBOX_KEY).then(coords => {
+        const marker = new mapboxgl.Marker({draggable: true})
+            .setLngLat(coords)
+            .addTo(map);
+
+        const avalonPopup = new mapboxgl.Popup()
+            .setHTML("<p>Welcome to Avalon, CA.</p>")
+
+        marker.setPopup(avalonPopup);
+    });
+
+    geocode("949 W Imperial Hwy., Unit D, La Habra, CA. 90631", MAPBOX_KEY).then(coords => {
+        console.log()
+        let popup = new mapboxgl.Popup()
+            .setLngLat([])
+            .setHTML("<p>Catalina Rocks!</p>")
+            .addTo(map);
+    });
+
+
+  </script>
+</body>
+</html>

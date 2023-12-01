@@ -86,7 +86,7 @@
 
     });
     const markers = [];
-    // ForEach Loop Through The Different Restaurants
+    // ForEach Loop Through The Different Restaurants - https://docs.mapbox.com/mapbox-gl-js/example/custom-marker-icons/?q=markers&size=n_10_n
     favRestaurants.forEach(restaurant => {
         geocode(restaurant.address, MAPBOX_KEY).then(coords => {
             const marker = new mapboxgl.Marker({draggable: true})
@@ -109,7 +109,7 @@
 
     favRestMap.addControl(new mapboxgl.NavigationControl());
 
-    // Add the control to the map.
+    // Add the control to the map for the search - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/
     favRestMap.addControl(
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#coronaWeather {
+    position: absolute;
+    left: 10%;
+}
+
+#map {
+    position: relative;
+    width: 80vw;
+    height: 60vh;
+    margin: auto;
+    border: 10px solid olive;
+
+}
+
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    top: 55%;
+    left: 12%;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
+.geocoder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+}

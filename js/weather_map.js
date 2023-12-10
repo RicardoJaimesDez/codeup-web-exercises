@@ -90,7 +90,21 @@
     marker.on('dragend', onDragEnd);
 
     // Add Search to The Map
+    const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false,
+        placeholder: 'Search for a location',
+    });
 
+    map.addControl(geocoder);
+
+    // Event handler for when a location is selected
+    geocoder.on('result', (event) => {
+        const lngLat = event.result.geometry.coordinates;
+        marker.setLngLat(lngLat);
+        onDragEnd();
+    });
 
     currentWeatherInCorona();
     fiveDayForecast(marker.getLngLat());

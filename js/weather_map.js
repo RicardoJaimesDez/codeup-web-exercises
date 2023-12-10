@@ -1,13 +1,7 @@
 "use strict";
 
 (() => {
-    // Pull Corona, CA. Weather
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?` +
-    //     `lat=33.8753&lon=-117.5664` +
-    //     `&appid=${OPEN_WM_KEY}`)
-    //     .then( data => console.log(data));
-
-    // Function for current weather in Corona, CA.
+    // Current Weather Functions For Corona, CA
     function currentWeatherInCorona() {
         fetch(`https://api.openweathermap.org/data/2.5/weather?` +
             `lat=33.8753&lon=-117.5664` + `&appid=${OPEN_WM_KEY}&units=imperial`)
@@ -15,14 +9,12 @@
             .then(currentWeather => {
                 const date = new Date(currentWeather.dt * 1000).toDateString();
                 const currentTemp = currentWeather.main.temp;
-
                 const coronaWeather = document.querySelector('#coronaWeather');
-                coronaWeather.innerHTML = `Current Temperature in Corona is: ${currentTemp} °F\n Date: ${date}`;
-
+                coronaWeather.innerHTML = `<h2 class="fancy-header">Temperature in Corona is:</h2>  
+                                            <p>${currentTemp} °F\n Date: ${date}</p>`;
             })
             .catch(error => alert(`Error fetching weather data: ${error.message}`));
     }
-
 
     // 5-Day Forecast Function
     function fiveDayForecast(lngLat) {
@@ -30,10 +22,10 @@
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${OPEN_WM_KEY}&units=imperial`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 let forecastData = '';
                 for (let i = 0; i < data.list.length; i += 8) {
                     const date = new Date(data.list[i].dt * 1000).toDateString();
+                    const city = data.city.name;
                     const temp = data.list[i].main.temp;
                     const lowTemp = data.list[i].main.temp_min;
                     const highTemp = data.list[i].main.temp_max;
@@ -45,9 +37,10 @@
                     <div class="col">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h4 class="card-title">${date}</h4>
+                                <h3 class="card-title bg-light">${city}</h3>
+                                <p>${date}</p>
                                 <h5>Current Temperature: ${temp} °F</h5>
-                                <h6>${lowTemp} °F / ${highTemp} °F</h6>
+                                <h6>L: ${lowTemp} °F / H: ${highTemp} °F</h6>
                                 <p class="card-text">Description: ${description}</p>
                                 <p class="card-text">Humidity: ${humidity}</p>
                                 <p class="card-text">Wind: ${wind}</p>
@@ -63,7 +56,6 @@
     }
 
     //-------------------------------------------- THIS IS THE CODE FOR MAPBOX -----------------------------------------
-    // Mapbox initialization
     mapboxgl.accessToken = MAPBOX_KEY;
     const coordinates = document.getElementById('coordinates');
     const map = new mapboxgl.Map({
@@ -80,6 +72,7 @@
         .setLngLat([-117.5664, 33.8753])
         .addTo(map);
 
+    // Drag Marker Function
     function onDragEnd() {
         const lngLat = marker.getLngLat();
         coordinates.style.display = 'block';
@@ -99,7 +92,7 @@
 
     map.addControl(geocoder);
 
-    // Event handler for when a location is selected
+    // Event handler For When Location Is Selected
     geocoder.on('result', (event) => {
         const lngLat = event.result.geometry.coordinates;
         marker.setLngLat(lngLat);
